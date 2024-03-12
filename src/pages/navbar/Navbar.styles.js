@@ -35,7 +35,7 @@ export const Sidebar = styled.button`
   }
 
   .menu-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.3);
   }
 `;
 
@@ -106,15 +106,21 @@ export const MenuName = styled.a`
   }
 `;
 
-export const DarkOff = styled.div`
+export const DarkOff = styled.button`
   position: absolute;
   width: 48px;
   height: 48px;
-  left: 60px;
+  transform: translateX(120%);
   bottom: 100px;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 
   @media (max-width: ${smallViewport}) {
-    left: 30px;
+    transform: translateX(60%);
     bottom: 50px;
   }
 `;

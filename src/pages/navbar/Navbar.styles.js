@@ -48,8 +48,8 @@ export const Title = styled.a`
 export const SidebarContent = styled.div`
   position: fixed;
   width: 208px;
-  top: 80px;
-  padding-top: 140px;
+  top: 0;
+  padding-top: 40px;
   padding-left: 20px;
   left: ${({ sidebarOpen }) => (sidebarOpen ? "0" : "-208px")};
   bottom: 0;
@@ -57,11 +57,18 @@ export const SidebarContent = styled.div`
     ease;
   transition: left 0.3s ease;
   background: #ffffff;
-
   @media (max-width: ${smallViewport}) {
     width: 108px;
-    padding-top: 70px;
+    padding-top: 20px;
     padding-left: 10px;
+  }
+`;
+
+export const ButtonBox = styled.div`
+  margin-top: 100px;
+
+  @media (max-width: ${smallViewport}) {
+    margin-top: 100px;
   }
 `;
 
@@ -103,15 +110,14 @@ export const MenuName = styled.a`
 
   @media (max-width: ${smallViewport}) {
     margin-left: 10px;
+    font-size: 15px;
   }
 `;
 
 export const DarkOff = styled.button`
   position: absolute;
-  width: 48px;
-  height: 48px;
-  transform: translateX(120%);
-  bottom: 100px;
+  transform: translateX(130%);
+  bottom: 50px;
   padding: 0;
   margin: 0;
   appearance: none;
@@ -120,8 +126,8 @@ export const DarkOff = styled.button`
   cursor: pointer;
 
   @media (max-width: ${smallViewport}) {
-    transform: translateX(60%);
-    bottom: 50px;
+    transform: translateX(50%);
+    bottom: 20px;
   }
 `;
 

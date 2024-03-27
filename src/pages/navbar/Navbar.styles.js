@@ -116,8 +116,8 @@ export const MenuName = styled.a`
 
 export const DarkOff = styled.button`
   position: absolute;
-  transform: translateX(130%);
-  bottom: 50px;
+  transform: translateX(calc(50% + (84px - 38px)));
+  bottom: 40px;
   padding: 0;
   margin: 0;
   appearance: none;
@@ -126,8 +126,7 @@ export const DarkOff = styled.button`
   cursor: pointer;
 
   @media (max-width: ${smallViewport}) {
-    transform: translateX(50%);
-    bottom: 20px;
+    transform: translateX(calc(50% + (44px - 38px)));
   }
 `;
 

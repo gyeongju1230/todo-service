@@ -1,12 +1,41 @@
 import * as styles from "./TodoBox.styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TodoExample } from "../../../data/TodoExample";
 import { ReactComponent as MoreButton } from "../../../assets/icon/MoreButton.svg";
+import { ReactComponent as UnCheck } from "../../../assets/icon/UnCheckBox.svg";
+import { ReactComponent as Check } from "../../../assets/icon/CheckBox.svg";
 
 const TodoBox = ({ sidebarOpen, moreModalOpen, setMoreModalOpen }) => {
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
+  const [checkedSections, setCheckedSections] = useState({});
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const toggleModal = () => {
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  let MAX_TITLE_LENGTH = windowWidth >= 992 ? 15 : 19;
+
+  if (sidebarOpen && windowWidth >= 992) {
+    MAX_TITLE_LENGTH = 12;
+  }
+
+  if (sidebarOpen && windowWidth < 992) {
+    MAX_TITLE_LENGTH = 10;
+  }
+
+  const toggleModal = (sectionKey) => {
+    setActiveSection(sectionKey === activeSection ? null : sectionKey);
     setMoreModalOpen(!moreModalOpen);
   };
 
@@ -32,19 +61,61 @@ const TodoBox = ({ sidebarOpen, moreModalOpen, setMoreModalOpen }) => {
     }
   };
 
-  return (
-    <styles.TodoBox sidebarOpen={sidebarOpen}>
-      <styles.TitleContainer>
+  const toggleCheckBox = (sectionKey) => {
+    setCheckedSections({
+      ...checkedSections,
+      [sectionKey]: !checkedSections[sectionKey],
+    });
+  };
+
+  return Object.keys(TodoExample).map((sectionKey, index) => (
+    <styles.TodoBox key={index} sidebarOpen={sidebarOpen}>
+      <styles.TitleContainer
+        style={
+          checkedSections[sectionKey]
+            ? { background: "#FFE1E4" }
+            : { background: "#fff2bf" }
+        }
+      >
         <styles.TitleBox>
-          <styles.Title>제목이 들어갈 자리..</styles.Title>
+          <styles.Title
+            style={
+              checkedSections[sectionKey]
+                ? { textDecorationLine: "line-through", fontWeight: "bold" }
+                : {}
+            }
+          >
+            {TodoExample[sectionKey].title.length > MAX_TITLE_LENGTH
+              ? `${TodoExample[sectionKey].title.substring(0, MAX_TITLE_LENGTH)}..`
+              : TodoExample[sectionKey].title}
+          </styles.Title>
         </styles.TitleBox>
         <styles.MoreButtonBox>
-          <styles.Button onClick={toggleModal}>
+          <styles.Button onClick={() => toggleModal(sectionKey)}>
             <MoreButton />
           </styles.Button>
         </styles.MoreButtonBox>
       </styles.TitleContainer>
-      {moreModalOpen && (
+      <styles.DescriptionContainer>
+        <styles.DescriptionBox>
+          {TodoExample[sectionKey].content}
+        </styles.DescriptionBox>
+      </styles.DescriptionContainer>
+      <styles.CheckBoxContainer>
+        {checkedSections[sectionKey] ? (
+          <styles.CheckBox onClick={() => toggleCheckBox(sectionKey)}>
+            <Check />
+            <styles.CheckText>완료!</styles.CheckText>
+          </styles.CheckBox>
+        ) : (
+          <styles.UnCheckBox onClick={() => toggleCheckBox(sectionKey)}>
+            <UnCheck />
+            <styles.CheckText>완료 시 체크!</styles.CheckText>
+          </styles.UnCheckBox>
+        )}
+      </styles.CheckBoxContainer>
+
+      {moreModalOpen && activeSection === sectionKey && (
         <styles.Modal moreModalOpen={moreModalOpen} sidebarOpen={sidebarOpen}>
           <styles.EditBox sidebarOpen={sidebarOpen} onClick={toggleEditModal}>
             <styles.ModalButton>
@@ -107,7 +178,7 @@ const TodoBox = ({ sidebarOpen, moreModalOpen, setMoreModalOpen }) => {
         </styles.ModalContainer>
       )}
     </styles.TodoBox>
-  );
+  ));
 };
 
 export default TodoBox;

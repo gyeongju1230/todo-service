@@ -4,15 +4,14 @@ const smallViewport = "62rem";
 
 export const Container = styled.div`
   position: absolute;
-  padding-left: 40px;
-  padding-top: 20px;
-  left: ${({ sidebarOpen }) => (sidebarOpen ? "208px" : "0")};
+  padding: 20px;
+  left: ${({ sidebarOpen }) => (sidebarOpen ? "228px" : "0")};
   transition: left 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 
   @media (max-width: ${smallViewport}) {
-    padding-left: 30px;
-    padding-top: 20px;
-    left: ${({ sidebarOpen }) => (sidebarOpen ? "104px" : "0")};
+    left: ${({ sidebarOpen }) => (sidebarOpen ? "114px" : "0")};
   }
 `;
 
@@ -20,13 +19,14 @@ export const CreateButtonBox = styled.button`
   position: fixed;
   width: 60px;
   height: 59px;
-  right: 50px;
-  bottom: 50px;
+  right: 30px;
+  bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background: #ffffff;
+  box-shadow: 1px 2px 9px rgba(45, 45, 45, 0.3);
 
   padding: 0;
   margin: 0;
@@ -35,7 +35,7 @@ export const CreateButtonBox = styled.button`
   cursor: pointer;
 
   @media (max-width: ${smallViewport}) {
-    right: 25px;
+    right: 15px;
     bottom: 20px;
   }
 `;

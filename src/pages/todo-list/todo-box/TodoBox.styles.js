@@ -4,24 +4,27 @@ const smallViewport = "62rem";
 
 export const TodoBox = styled.div`
   position: relative;
-  width: 320px;
+  width: calc(25% - 20px);
   height: 240px;
+  margin-left: 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
   background: #ffffff;
 
   @media (max-width: ${smallViewport}) {
-    width: ${({ sidebarOpen }) => (sidebarOpen ? "220px" : "320px")};
-    height: ${({ sidebarOpen }) => (sidebarOpen ? "140px" : "240px")};
+    width: 100%;
+    margin-left: 0;
   }
 `;
 
 export const TitleContainer = styled.div`
   width: 100%;
   height: 42px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: #fff2bf;
 `;
 
 export const TitleBox = styled.div`
@@ -55,6 +58,74 @@ export const Button = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+`;
+
+export const DescriptionContainer = styled.div`
+  width: 100%;
+  height: 163px;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+`;
+
+export const DescriptionBox = styled.p`
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  color: #8c8c8c;
+  font-size: 17px;
+  overflow-y: auto;
+  word-wrap: break-word;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: ${smallViewport}) {
+    font-size: 15px;
+  }
+`;
+
+export const CheckBoxContainer = styled.div`
+  width: 100%;
+  height: 35px;
+`;
+
+export const UnCheckBox = styled.button`
+  position: absolute;
+  width: 122px;
+  height: 26px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+
+  appearance: none;
+  border: none;
+  cursor: pointer;
+`;
+
+export const CheckBox = styled.button`
+  position: absolute;
+  width: 70px;
+  height: 26px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+
+  appearance: none;
+  border: none;
+  cursor: pointer;
+`;
+
+export const CheckText = styled.p`
+  margin: 0;
+  color: #8c8c8c;
+  font-size: 16px;
+  font-weight: bold;
 `;
 
 export const Modal = styled.div`
@@ -319,7 +390,7 @@ export const DeleteModalContent = styled.p`
   margin-top: 80px;
 
   @media (max-width: ${smallViewport}) {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 45px;
   }
 `;

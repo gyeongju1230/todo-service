@@ -1,5 +1,3 @@
-// Fixme. todo title 글자 수 14자 제한 뒤는 .. 처리, 앱에서는 9자 제한
-
 import * as styles from "./TodoList.styles";
 import { useState } from "react";
 import { ReactComponent as CreateButton } from "../../assets/icon/CreateButton.svg";

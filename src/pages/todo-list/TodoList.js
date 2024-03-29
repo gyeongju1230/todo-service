@@ -14,6 +14,7 @@ const TodoList = ({
   const [createModal, setCreateModal] = useState(false);
   const [todoTitle, setTodoTitle] = useState("");
   const [todoDescription, setTodoDescription] = useState("");
+  const [todoData, setTodoData] = useState(TodoExample);
 
   const closeModal = () => {
     if (moreModalOpen) {
@@ -40,8 +41,8 @@ const TodoList = ({
       return;
     }
 
-    const newSectionKey = `section${Object.keys(TodoExample).length + 1}`;
-    TodoExample[newSectionKey] = {
+    const newSectionKey = `section${Object.keys(todoData).length + 1}`;
+    todoData[newSectionKey] = {
       title: trimmedTitle,
       content: trimmedDescription,
     };
@@ -60,6 +61,8 @@ const TodoList = ({
         checkedSections={checkedSections}
         setCheckedSections={setCheckedSections}
         filter={filter}
+        todoData={todoData}
+        setTodoData={setTodoData}
       />
       <styles.CreateButtonBox onClick={createModalOpen}>
         <CreateButton />

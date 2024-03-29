@@ -1,6 +1,5 @@
 import * as styles from "./TodoBox.styles";
 import { useEffect, useState } from "react";
-import { TodoExample } from "../../data/TodoExample";
 import { ReactComponent as MoreButton } from "../../assets/icon/MoreButton.svg";
 import { ReactComponent as UnCheck } from "../../assets/icon/UnCheckBox.svg";
 import { ReactComponent as Check } from "../../assets/icon/CheckBox.svg";
@@ -12,6 +11,8 @@ const TodoBox = ({
   checkedSections,
   setCheckedSections,
   filter,
+  todoData,
+  setTodoData,
 }) => {
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -19,7 +20,6 @@ const TodoBox = ({
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
-  const [todoData, setTodoData] = useState(TodoExample);
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,8 +46,8 @@ const TodoBox = ({
   const toggleModal = (sectionKey) => {
     setActiveSection(sectionKey === activeSection ? null : sectionKey);
     setMoreModalOpen(!moreModalOpen);
-    setEditTitle(TodoExample[sectionKey].title);
-    setEditDescription(TodoExample[sectionKey].content);
+    setEditTitle(todoData[sectionKey].title);
+    setEditDescription(todoData[sectionKey].content);
   };
 
   const toggleEditModal = () => {
@@ -87,8 +87,8 @@ const TodoBox = ({
       return;
     }
 
-    TodoExample[activeSection].title = trimmedEditTitle;
-    TodoExample[activeSection].content = trimmedEditDescription;
+    todoData[activeSection].title = trimmedEditTitle;
+    todoData[activeSection].content = trimmedEditDescription;
 
     setEditTitle("");
     setEditDescription("");
@@ -96,7 +96,7 @@ const TodoBox = ({
   };
 
   const handleDelete = () => {
-    const updatedData = { ...TodoExample };
+    const updatedData = { ...todoData };
 
     delete updatedData[activeSection];
 

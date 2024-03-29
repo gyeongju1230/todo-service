@@ -3,7 +3,12 @@ import { useState } from "react";
 import { ReactComponent as CreateButton } from "../../assets/icon/CreateButton.svg";
 import TodoBox from "./todo-box/TodoBox";
 
-const TodoList = ({ sidebarOpen }) => {
+const TodoList = ({
+  sidebarOpen,
+  checkedSections,
+  setCheckedSections,
+  filter,
+}) => {
   const [moreModalOpen, setMoreModalOpen] = useState(false);
   const [createModal, setCreateModal] = useState(false);
 
@@ -29,6 +34,9 @@ const TodoList = ({ sidebarOpen }) => {
         sidebarOpen={sidebarOpen}
         moreModalOpen={moreModalOpen}
         setMoreModalOpen={setMoreModalOpen}
+        checkedSections={checkedSections}
+        setCheckedSections={setCheckedSections}
+        filter={filter}
       />
       <styles.CreateButtonBox onClick={createModalOpen}>
         <CreateButton />

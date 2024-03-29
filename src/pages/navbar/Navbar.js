@@ -3,11 +3,23 @@ import * as styles from "./Navbar.styles";
 import { ReactComponent as SideMenu } from "../../assets/icon/Sidebar.svg";
 import { ReactComponent as SideMenuClose } from "../../assets/icon/CloseButton.svg";
 import { ReactComponent as DarkModeOff } from "../../assets/icon/DarkModeOff.svg";
+import { useEffect, useState } from "react";
 
-const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
+const Navbar = ({ sidebarOpen, setSidebarOpen, setFilter }) => {
+  const [_, setActiveMenu] = useState("all");
+
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const handleMenuClick = (menu) => {
+    setActiveMenu(menu);
+    setFilter(menu);
+  };
+
+  useEffect(() => {
+    setFilter("all");
+  }, []);
 
   return (
     <styles.Header>
@@ -27,11 +39,15 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
             <SideMenuClose className="menu-icon" />
           </styles.Sidebar>
           <styles.ButtonBox>
-            <styles.MenuBox>
-              <styles.InProgressBox /> <styles.MenuName>진행중</styles.MenuName>
+            <styles.MenuBox onClick={() => handleMenuClick("all")}>
+              <styles.AllBox /> <styles.MenuName>All</styles.MenuName>
             </styles.MenuBox>
-            <styles.MenuBox>
-              <styles.CompletedBox /> <styles.MenuName>완료</styles.MenuName>
+            <styles.MenuBox onClick={() => handleMenuClick("active")}>
+              <styles.InProgressBox /> <styles.MenuName>Active</styles.MenuName>
+            </styles.MenuBox>
+            <styles.MenuBox onClick={() => handleMenuClick("completed")}>
+              <styles.CompletedBox />
+              <styles.MenuName>Completed</styles.MenuName>
             </styles.MenuBox>
           </styles.ButtonBox>
           <styles.DarkOff>

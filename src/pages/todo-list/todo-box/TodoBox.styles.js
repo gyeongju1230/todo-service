@@ -4,7 +4,6 @@ const smallViewport = "62rem";
 
 export const TodoBox = styled.div`
   position: relative;
-  width: calc(25% - 20px);
   height: 240px;
   margin-left: 20px;
   margin-bottom: 20px;

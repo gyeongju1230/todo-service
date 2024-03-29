@@ -72,10 +72,26 @@ export const ButtonBox = styled.div`
   }
 `;
 
-export const MenuBox = styled.div`
+export const MenuBox = styled.button`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
+
+export const AllBox = styled.div`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #b6b6b5;
+
+  @media (max-width: ${smallViewport}) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const InProgressBox = styled.div`
@@ -110,7 +126,7 @@ export const MenuName = styled.a`
 
   @media (max-width: ${smallViewport}) {
     margin-left: 10px;
-    font-size: 15px;
+    font-size: 12px;
   }
 `;
 

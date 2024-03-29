@@ -3,15 +3,14 @@ import styled from "styled-components";
 const smallViewport = "62rem";
 
 export const Container = styled.div`
-  position: absolute;
   padding: 20px;
-  left: ${({ sidebarOpen }) => (sidebarOpen ? "228px" : "0")};
+  margin-left: ${({ sidebarOpen }) => (sidebarOpen ? "228px" : "0")};
   transition: left 0.3s ease;
   display: flex;
   flex-wrap: wrap;
 
   @media (max-width: ${smallViewport}) {
-    left: ${({ sidebarOpen }) => (sidebarOpen ? "114px" : "0")};
+    margin-left: ${({ sidebarOpen }) => (sidebarOpen ? "114px" : "0")};
   }
 `;
 

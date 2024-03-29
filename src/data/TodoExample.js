@@ -21,11 +21,6 @@ export const TodoExample = {
   },
   section6: {
     title: "블로그 작성 📝",
-    content: (
-      <>
-        <div>✅ 사진 셀렉</div>
-        <div>✅ 작성 내용 정리</div>
-      </>
-    ),
+    content: "✅ 사진 셀렉하기",
   },
 };

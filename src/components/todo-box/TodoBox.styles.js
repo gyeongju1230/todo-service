@@ -205,6 +205,7 @@ export const ModalContainer = styled.div`
   left: 0;
   align-content: center;
   background: rgba(45, 45, 45, 0.3);
+  z-index: 1;
 `;
 
 export const EditModal = styled.div`
@@ -219,6 +220,7 @@ export const EditModal = styled.div`
   align-items: center;
   border-radius: 10px;
   background: #ffffff;
+  z-index: 2;
 
   @media (max-width: ${smallViewport}) {
     width: 320px;
@@ -375,6 +377,7 @@ export const DeleteModal = styled.div`
   align-items: center;
   border-radius: 10px;
   background: #ffffff;
+  z-index: 2;
 
   @media (max-width: ${smallViewport}) {
     width: 210px;

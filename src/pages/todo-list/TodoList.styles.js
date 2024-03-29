@@ -47,6 +47,7 @@ export const CreateModalContainer = styled.div`
   left: 0;
   align-content: center;
   background: rgba(45, 45, 45, 0.3);
+  z-index: 1;
 `;
 
 export const CreateModal = styled.div`
@@ -61,6 +62,7 @@ export const CreateModal = styled.div`
   align-items: center;
   border-radius: 10px;
   background: #ffffff;
+  z-index: 2;
 
   @media (max-width: ${smallViewport}) {
     width: 320px;

@@ -1,9 +1,9 @@
 import * as styles from "./TodoBox.styles";
 import { useEffect, useState } from "react";
-import { TodoExample } from "../../../data/TodoExample";
-import { ReactComponent as MoreButton } from "../../../assets/icon/MoreButton.svg";
-import { ReactComponent as UnCheck } from "../../../assets/icon/UnCheckBox.svg";
-import { ReactComponent as Check } from "../../../assets/icon/CheckBox.svg";
+import { TodoExample } from "../../data/TodoExample";
+import { ReactComponent as MoreButton } from "../../assets/icon/MoreButton.svg";
+import { ReactComponent as UnCheck } from "../../assets/icon/UnCheckBox.svg";
+import { ReactComponent as Check } from "../../assets/icon/CheckBox.svg";
 
 const TodoBox = ({
   sidebarOpen,
@@ -17,6 +17,9 @@ const TodoBox = ({
   const [deleteModal, setDeleteModal] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [editTitle, setEditTitle] = useState("");
+  const [editDescription, setEditDescription] = useState("");
+  const [todoData, setTodoData] = useState(TodoExample);
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,6 +46,8 @@ const TodoBox = ({
   const toggleModal = (sectionKey) => {
     setActiveSection(sectionKey === activeSection ? null : sectionKey);
     setMoreModalOpen(!moreModalOpen);
+    setEditTitle(TodoExample[sectionKey].title);
+    setEditDescription(TodoExample[sectionKey].content);
   };
 
   const toggleEditModal = () => {
@@ -51,20 +56,19 @@ const TodoBox = ({
   };
 
   const closeEditModal = () => {
-    if (editModal) {
-      setEditModal(false);
-    }
+    setEditModal(false);
+    setActiveSection(null);
   };
 
-  const toggleDeleteModal = () => {
+  const toggleDeleteModal = (sectionKey) => {
+    setActiveSection(sectionKey);
     setDeleteModal(!deleteModal);
     setMoreModalOpen(false);
   };
 
   const closeDeleteModal = () => {
-    if (deleteModal) {
-      setDeleteModal(false);
-    }
+    setDeleteModal(false);
+    setActiveSection(null);
   };
 
   const toggleCheckBox = (sectionKey) => {
@@ -74,7 +78,38 @@ const TodoBox = ({
     });
   };
 
-  return Object.keys(TodoExample).map((sectionKey, index) => {
+  const handleEdit = () => {
+    const trimmedEditTitle = editTitle.trim();
+    const trimmedEditDescription = editDescription.trim();
+
+    if (!trimmedEditTitle) {
+      alert("Todo Title을 입력해주세요! 📝");
+      return;
+    }
+
+    TodoExample[activeSection].title = trimmedEditTitle;
+    TodoExample[activeSection].content = trimmedEditDescription;
+
+    setEditTitle("");
+    setEditDescription("");
+    closeEditModal();
+  };
+
+  const handleDelete = () => {
+    const updatedData = { ...TodoExample };
+
+    delete updatedData[activeSection];
+
+    setTodoData(updatedData);
+
+    const updatedCheckedSections = { ...checkedSections };
+    delete updatedCheckedSections[activeSection];
+    setCheckedSections(updatedCheckedSections);
+
+    closeDeleteModal();
+  };
+
+  return Object.keys(todoData).map((sectionKey, index) => {
     const isChecked = checkedSections[sectionKey];
     const isCompleted = isChecked && filter === "completed";
     const isActive = !isChecked && filter === "active";
@@ -87,7 +122,7 @@ const TodoBox = ({
           isCompleted={isCompleted}
           style={{
             flexBasis:
-              windowWidth < 992 || Object.keys(TodoExample).length === 1
+              windowWidth < 992 || Object.keys(todoData).length === 1
                 ? "100%"
                 : "calc(25% - 40px)",
           }}
@@ -107,9 +142,9 @@ const TodoBox = ({
                     : {}
                 }
               >
-                {TodoExample[sectionKey].title.length > MAX_TITLE_LENGTH
-                  ? `${TodoExample[sectionKey].title.substring(0, MAX_TITLE_LENGTH)}..`
-                  : TodoExample[sectionKey].title}
+                {todoData[sectionKey].title.length > MAX_TITLE_LENGTH
+                  ? `${todoData[sectionKey].title.substring(0, MAX_TITLE_LENGTH)}..`
+                  : todoData[sectionKey].title}
               </styles.Title>
             </styles.TitleBox>
             <styles.MoreButtonBox>
@@ -120,7 +155,7 @@ const TodoBox = ({
           </styles.TitleContainer>
           <styles.DescriptionContainer>
             <styles.DescriptionBox>
-              {TodoExample[sectionKey].content}
+              {todoData[sectionKey].content}
             </styles.DescriptionBox>
           </styles.DescriptionContainer>
           <styles.CheckBoxContainer>
@@ -154,7 +189,7 @@ const TodoBox = ({
               </styles.EditBox>
               <styles.DeleteBox
                 sidebarOpen={sidebarOpen}
-                onClick={toggleDeleteModal}
+                onClick={() => toggleDeleteModal(sectionKey)}
               >
                 <styles.ModalButton>
                   <styles.ButtonText sidebarOpen={sidebarOpen}>
@@ -165,24 +200,30 @@ const TodoBox = ({
             </styles.Modal>
           )}
 
-          {editModal && (
+          {editModal && activeSection === sectionKey && (
             <styles.ModalContainer>
               <styles.EditModal>
                 <styles.EditTitleText>Title</styles.EditTitleText>
                 <styles.EditTitleBox>
-                  <styles.EditTitleInput />
+                  <styles.EditTitleInput
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                  />
                 </styles.EditTitleBox>
                 <styles.EditDescriptionText>
                   Description
                 </styles.EditDescriptionText>
                 <styles.EditDescriptionBox>
-                  <styles.EditDescriptionInput />
+                  <styles.EditDescriptionInput
+                    value={editDescription}
+                    onChange={(e) => setEditDescription(e.target.value)}
+                  />
                 </styles.EditDescriptionBox>
                 <styles.ButtonBox>
                   <styles.CancelBox onClick={closeEditModal}>
                     <styles.CancelText>Cancel</styles.CancelText>
                   </styles.CancelBox>
-                  <styles.EditDeleteButton>
+                  <styles.EditDeleteButton onClick={handleEdit}>
                     <styles.Text>Edit</styles.Text>
                   </styles.EditDeleteButton>
                 </styles.ButtonBox>
@@ -190,7 +231,7 @@ const TodoBox = ({
             </styles.ModalContainer>
           )}
 
-          {deleteModal && (
+          {deleteModal && activeSection === sectionKey && (
             <styles.ModalContainer>
               <styles.DeleteModal>
                 <styles.DeleteModalContent>
@@ -200,7 +241,7 @@ const TodoBox = ({
                   <styles.CancelBox onClick={closeDeleteModal}>
                     <styles.CancelText>Cancel</styles.CancelText>
                   </styles.CancelBox>
-                  <styles.EditDeleteButton>
+                  <styles.EditDeleteButton onClick={handleDelete}>
                     <styles.Text>Delete</styles.Text>
                   </styles.EditDeleteButton>
                 </styles.ButtonBox>

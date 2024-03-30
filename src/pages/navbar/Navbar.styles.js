@@ -8,7 +8,7 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   height: 80px;
-  background: #ffffff;
+  background: ${(props) => props.theme.colors.bgColor};
 
   @media (max-width: ${smallViewport}) {
     flex-direction: column;
@@ -40,7 +40,7 @@ export const Sidebar = styled.button`
 `;
 
 export const Title = styled.a`
-  color: #8c8c8c;
+  color: ${(props) => props.theme.colors.titleColor};
   font-size: 30px;
   font-weight: bold;
 `;
@@ -56,7 +56,7 @@ export const SidebarContent = styled.div`
   animation: ${({ sidebarOpen }) => (sidebarOpen ? slideIn : slideOut)} 0.3s
     ease;
   transition: left 0.3s ease;
-  background: #ffffff;
+  background: ${(props) => props.theme.colors.bgColor};
   @media (max-width: ${smallViewport}) {
     width: 108px;
     padding-top: 20px;
@@ -120,7 +120,7 @@ export const CompletedBox = styled.div`
 
 export const MenuName = styled.a`
   margin-left: 20px;
-  color: #8c8c8c;
+  color: ${(props) => props.theme.colors.titleColor};
   font-size: 20px;
   font-weight: bold;
 

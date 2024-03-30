@@ -3,9 +3,17 @@ import * as styles from "./Navbar.styles";
 import { ReactComponent as SideMenu } from "../../assets/icon/Sidebar.svg";
 import { ReactComponent as SideMenuClose } from "../../assets/icon/CloseButton.svg";
 import { ReactComponent as DarkModeOff } from "../../assets/icon/DarkModeOff.svg";
+import { ReactComponent as DarkModeOn } from "../../assets/icon/DarkModeOn.svg";
 import { useEffect, useState } from "react";
+import { dark, light } from "../../theme";
 
-const Navbar = ({ sidebarOpen, setSidebarOpen, setFilter }) => {
+const Navbar = ({
+  sidebarOpen,
+  setSidebarOpen,
+  setFilter,
+  toggleTheme,
+  themeMode,
+}) => {
   const [_, setActiveMenu] = useState("all");
 
   const toggleSidebar = () => {
@@ -50,8 +58,8 @@ const Navbar = ({ sidebarOpen, setSidebarOpen, setFilter }) => {
               <styles.MenuName>Completed</styles.MenuName>
             </styles.MenuBox>
           </styles.ButtonBox>
-          <styles.DarkOff>
-            <DarkModeOff />
+          <styles.DarkOff onClick={toggleTheme}>
+            {themeMode === "dark" ? <DarkModeOn /> : <DarkModeOff />}
           </styles.DarkOff>
         </styles.SidebarContent>
       )}

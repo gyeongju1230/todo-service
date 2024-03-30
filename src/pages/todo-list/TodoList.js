@@ -2,7 +2,7 @@ import * as styles from "./TodoList.styles";
 import { useState } from "react";
 import { ReactComponent as CreateButton } from "../../assets/icon/CreateButton.svg";
 import TodoBox from "../../components/todo-box/TodoBox";
-import { TodoExample } from "../../data/TodoExample";
+import { TodoExample } from "../../datas/TodoExample";
 
 const TodoList = ({
   sidebarOpen,

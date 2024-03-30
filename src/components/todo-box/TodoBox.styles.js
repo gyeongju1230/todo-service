@@ -8,7 +8,7 @@ export const TodoBox = styled.div`
   margin-left: 35px;
   margin-bottom: 20px;
   border-radius: 10px;
-  background: #ffffff;
+  background: ${(props) => props.theme.colors.bgColor};
 
   @media (max-width: ${smallViewport}) {
     width: 100%;
@@ -64,7 +64,6 @@ export const DescriptionContainer = styled.div`
   height: 163px;
   display: flex;
   justify-content: center;
-  background: #ffffff;
 `;
 
 export const DescriptionBox = styled.p`

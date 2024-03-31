@@ -32,12 +32,11 @@
 
 ### 데모 영상
 
-| Feature | Demo |
-|---------|------|
-| [Create](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477) | [![Create](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477)](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477) |
-| [Edit](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1) | [![Edit](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1)](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1) |
-| [Delete](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624) | [![Delete](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624)](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624) |
-| [Darkmode](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d) | [![Darkmode](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d)](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d) |
+|Create|Edit|
+|:-:|:-:|
+|![](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477) | [![](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1)|
+|Delete|Darkmode|
+|![](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624)|![](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d)|
 
 ------------
 

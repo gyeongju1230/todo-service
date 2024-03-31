@@ -1,7 +1,6 @@
 # My Todo 🗓
 
 ------------
-
 ### 프로젝트 소개
 
 > - **Todo-Service** 는 사용자가 일정 관리를 편리하게 하고, 일정을 한눈에 쉽게 볼 수 있는 웹 애플리케이션입니다. 
@@ -10,9 +9,14 @@
 
 ### 진행 기간
 
-📄 기획: 2024.03.12 - 2024.03.14  
-📚 디자인: 2024.03.15 - 2024.03.20  
-👩🏻‍💻 개발: 2024.03.21 - 2024.03.30
+📄 기획  
+- **2024.03.12 - 2024.03.14**
+
+📚 디자인  
+- **2024.03.15 - 2024.03.20**
+
+👩🏻‍💻 개발  
+- **2024.03.21 - 2024.03.30**
 
 ### 기술 스택
 
@@ -24,11 +28,16 @@
 
 ### 배포 링크
 
-- 링크 삽입 예정
+- https://gyeongju-todo-service.com
 
 ### 데모 영상
 
-- 영상 삽입 예정
+| Feature | Demo |
+|---------|------|
+| [Create](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477) | [![Create](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477)](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477) |
+| [Edit](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1) | [![Edit](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1)](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1) |
+| [Delete](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624) | [![Delete](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624)](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624) |
+| [Darkmode](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d) | [![Darkmode](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d)](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d) |
 
 ------------
 

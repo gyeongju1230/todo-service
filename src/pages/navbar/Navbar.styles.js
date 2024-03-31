@@ -125,7 +125,7 @@ export const MenuName = styled.a`
   font-weight: bold;
 
   @media (max-width: ${smallViewport}) {
-    margin-left: 8px;
+    margin-left: 4px;
     font-size: 12px;
   }
 `;

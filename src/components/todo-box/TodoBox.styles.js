@@ -91,12 +91,13 @@ export const CheckBoxContainer = styled.div`
 
 export const UnCheckBox = styled.button`
   position: absolute;
-  width: 122px;
+  width: auto;
   height: 26px;
   right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 5px;
   background-color: transparent;
 
   appearance: none;
@@ -106,12 +107,13 @@ export const UnCheckBox = styled.button`
 
 export const CheckBox = styled.button`
   position: absolute;
-  width: 70px;
+  width: auto;
   height: 26px;
   right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 5px;
   background-color: transparent;
 
   appearance: none;

@@ -29,7 +29,7 @@
 
 ### 배포 링크
 
-- https://gyeongju-todo-service.com
+- [🔗 배포 사이트로 이동하기](https://todo.jung-gyeongju.com)
 
 ### 데모 영상
 

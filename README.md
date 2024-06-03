@@ -21,7 +21,7 @@
 
 ### 기술 스택
 
-- React, Styled-component, AWS Amplify
+- React, AWS Amplify, CSS, Styled-component, Figma
 
 ### 주요 기능
 
@@ -50,5 +50,5 @@
 
 ### Documents
 
-- [사용자 요구사항 정의서](https://www.notion.so/c9f08ecf0451430893af9c3f6206229a?pvs=4)
+- [Notion](https://www.notion.so/gyeongju/Todo-Service-afea5e1f5c5a44cd9c53910ae3a08576?pvs=4)
 - [Figma](https://www.figma.com/file/pUqMQkXPpaZtXJSSrktPhQ/Todo?type=design&node-id=0%3A1&mode=dev&t=AxyoVvZ1IxoXZ3HW-1)

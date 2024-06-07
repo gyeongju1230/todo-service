@@ -3,9 +3,11 @@
 
 ### 프로젝트 소개
 
-> - **Todo-Service** 는 사용자가 일정 관리를 편리하게 하고, 일정을 한눈에 쉽게 볼 수 있는 웹 애플리케이션입니다. 
-> - 기존 사용하던 여러 Todo 앱을 사용하며 느낀 불편한 점을 고려하여 사용자 경험에 대해 고민하고, 일정 관리가 쉽고 편한 Todo를 만들기 위해 시작한 프로젝트입니다.
-> - **Todo-SerVice** 는 단기 프로젝트로 기획부터 디자인, 개발까지 모두 혼자하는 것을 목표로 진행하였습니다. 
+<img src="./src/assets/images/readme/Todo.png" alt="project-image" height="250">
+
+> **Todo-Service** 는 사용자가 일정 관리를 편리하게 하고, 일정을 한눈에 쉽게 볼 수 있는 웹 애플리케이션입니다.    
+> 기존 사용하던 여러 Todo 앱을 사용하며 느낀 불편한 점을 고려하여 사용자 경험에 대해 고민하고, 일정 관리가 쉽고 편한 Todo를 만들기 위해 시작한 프로젝트입니다.   
+> **Todo-SerVice** 는 단기 프로젝트로 기획부터 디자인, 개발까지 모두 혼자하는 것을 목표로 진행하였습니다. 
 
 ### 진행 기간
 
@@ -20,9 +22,19 @@
 
 ### 기술 스택
 
-- React, AWS Amplify, CSS, Styled-component, Figma
+- ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white)
+  ![AWS Amplify](https://img.shields.io/badge/AWS%20Amplify-FF9900?style=flat&logo=AWSAmplify&logoColor=white)
+  ![CSS](https://img.shields.io/badge/CSS-F43059?style=flat&logo=csswizardry&logoColor=white)
+  ![Styled-component](https://img.shields.io/badge/styled%20components-DB7093?style=flat&logo=styledcomponents&logoColor=white)
+  ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=Figma&logoColor=white)
 
 ### 주요 기능
+
+|Create|                                               Edit                                                |
+|:-:|:-------------------------------------------------------------------------------------------------:|
+|![](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477) |![](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1) |
+|Delete|                                             Darkmode                                              |
+|![](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624)|![](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d) |
 
 - Todo CRUD
 - Filtering
@@ -32,14 +44,6 @@
 
 - [🔗 배포 사이트로 이동하기](https://todo.jung-gyeongju.com)
 
-
-|Create|                                               Edit                                                |
-|:-:|:-------------------------------------------------------------------------------------------------:|
-|![](https://github.com/jkj1230/todo-service/assets/127480050/cd67245b-bea8-4498-bb94-35cfd4461477) |![](https://github.com/jkj1230/todo-service/assets/127480050/72319f6a-7d47-461e-8631-b955ca252ad1) |
-|Delete|                                             Darkmode                                              |
-|![](https://github.com/jkj1230/todo-service/assets/127480050/802320d1-a061-4591-bf21-33a5ff6c1624)|![](https://github.com/jkj1230/todo-service/assets/127480050/91afc3a1-9852-4478-b44c-4941f0bbef0d) |
-
-------------
 
 ### 프로젝트 후기 🙇🏻‍♀️
 
